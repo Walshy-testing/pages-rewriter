@@ -3,7 +3,7 @@ export default {
     const res = await env.ASSETS.fetch(request);
 
     return new HTMLRewriter()
-      .on('*', new ElementHandler())
+      .on('*', new Rewriter())
       .transform(res)
   }
 }
@@ -11,7 +11,7 @@ export default {
 class Rewriter {
   element(element) {
     if (element.tagName === 'title' || element.tagName === 'h1') {
-      element.setInenrContent('Walshy is awesome');
+      element.setInnerContent('Walshy is awesome');
     }
   }
 }
